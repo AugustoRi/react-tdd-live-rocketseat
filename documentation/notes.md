@@ -6,6 +6,8 @@
 - Improper Instanciation
 - High Coupling
 - Test Code in Production
+- Duplicate Code
+- Shotgun Surgery
 
 # Design Patterns/Principles/Conventions
 - Small Commits
@@ -16,5 +18,6 @@
 - Arrange, Act, Assert (AAA)
 - Dependency Injection (DI)
 - Repository Pattern
-- Test Doubles (MOCK)
+- Test Doubles (MOCK, STUB, SPY)
 - System Under Test (SUT)
+- Strategy Pattern
