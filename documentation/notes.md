@@ -8,6 +8,7 @@
 - Test Code in Production
 - Duplicate Code
 - Shotgun Surgery
+- Long Parameter List
 
 # Design Patterns/Principles/Conventions
 - Small Commits
@@ -21,3 +22,4 @@
 - Test Doubles (MOCK, STUB, SPY)
 - System Under Test (SUT)
 - Strategy Pattern
+- Factory Pattern
