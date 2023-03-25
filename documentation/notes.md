@@ -17,3 +17,4 @@
 - Dependency Injection (DI)
 - Repository Pattern
 - Test Doubles (MOCK)
+- System Under Test (SUT)
