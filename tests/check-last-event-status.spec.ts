@@ -30,6 +30,10 @@ class LoadLastEventRepositorySpy implements LoadLastEventRepository {
   groupId?: string
   callsCount = 0
   output?: LoadLastEventRepositoryPropsReturn
+  calculateReviewTime = {
+    reviewDurationInHours: 1,
+    reviewDurationInMs: 1 * 60 * 60 * 1000
+  }
 
   handleSendEndDateBeforeNow = (): void => {
     this.output = {
@@ -53,20 +57,23 @@ class LoadLastEventRepositorySpy implements LoadLastEventRepository {
   }
 
   handleSendDateWithNowBeforeReviewTime = (): void => {
-    const reviewDurationInHours = 1
-    const reviewDurationInMs = reviewDurationInHours * 60 * 60 * 1000
     this.output = {
-      endDate: new Date(new Date().getTime() - reviewDurationInMs + 1),
-      reviewDurationInHours
+      endDate: new Date(new Date().getTime() - this.calculateReviewTime.reviewDurationInMs + 1),
+      reviewDurationInHours: this.calculateReviewTime.reviewDurationInHours
     }
   }
 
   handleSendDateWithNowEqualReviewTime = (): void => {
-    const reviewDurationInHours = 1
-    const reviewDurationInMs = reviewDurationInHours * 60 * 60 * 1000
     this.output = {
-      endDate: new Date(new Date().getTime() - reviewDurationInMs),
-      reviewDurationInHours
+      endDate: new Date(new Date().getTime() - this.calculateReviewTime.reviewDurationInMs),
+      reviewDurationInHours: this.calculateReviewTime.reviewDurationInHours
+    }
+  }
+
+  handleSendDateWithNowAfterReviewTime = (): void => {
+    this.output = {
+      endDate: new Date(new Date().getTime() - this.calculateReviewTime.reviewDurationInMs - 1),
+      reviewDurationInHours: this.calculateReviewTime.reviewDurationInHours
     }
   }
 
